@@ -3,6 +3,7 @@ package ru.labs.lab2task3;
 import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
+import java.util.stream.IntStream;
 
 public final class Main {
     private Main() {}
@@ -30,6 +31,7 @@ public final class Main {
                 input.readInt("Порядок длин: 1 — по возрастанию, 2 — по убыванию: ", 1, 2) == 1;
         System.out.println("Исходная матрица:");
         print(matrix);
+        System.out.println("Обычная реализация:");
         for (int i = 0; i < n; i++) {
             System.out.printf(
                     "Строка %d: длина %d%n",
@@ -39,6 +41,23 @@ public final class Main {
         print(MatrixSequences.sortedRows(matrix, increasing, ascending));
         System.out.println("Зубчатый массив из строк ИСХОДНОЙ матрицы:");
         print(MatrixSequences.jagged(matrix, increasing));
+        System.out.println("Реализация через Stream API:");
+        IntStream.range(0, n)
+                .forEach(
+                        i ->
+                                System.out.printf(
+                                        "Строка %d: длина %d%n",
+                                        i + 1,
+                                        MatrixSequencesStream.longestRun(matrix[i], increasing)
+                                                .length()));
+        System.out.println("Упорядоченная матрица (Stream API):");
+        printStream(MatrixSequencesStream.sortedRows(matrix, increasing, ascending));
+        System.out.println("Зубчатый массив из строк ИСХОДНОЙ матрицы (Stream API):");
+        printStream(MatrixSequencesStream.jagged(matrix, increasing));
+    }
+
+    private static void printStream(int[][] matrix) {
+        Arrays.stream(matrix).map(Arrays::toString).forEach(System.out::println);
     }
 
     private static void print(int[][] matrix) {

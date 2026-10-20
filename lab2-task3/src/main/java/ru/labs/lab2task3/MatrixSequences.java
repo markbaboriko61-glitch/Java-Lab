@@ -30,7 +30,10 @@ public final class MatrixSequences {
     }
 
     public static int[][] sortedRows(int[][] source, boolean increasing, boolean ascending) {
-        int[][] result = Arrays.stream(source).map(int[]::clone).toArray(int[][]::new);
+        int[][] result = new int[source.length][];
+        for (int i = 0; i < source.length; i++) {
+            result[i] = source[i].clone();
+        }
         Comparator<int[]> comparator =
                 Comparator.comparingInt(row -> longestRun(row, increasing).length());
         if (!ascending) {

@@ -38,14 +38,33 @@ public final class Main {
         }
         System.out.println("Исходные результаты:");
         print(matrix);
+        System.out.println("Обычная реализация:");
         System.out.println("Отчисленные (есть хотя бы одна двойка):");
-        Arrays.stream(matrix)
-                .filter(SessionResults::isDebtor)
-                .forEach(row -> System.out.println(row[0]));
+        for (int[] row : matrix) {
+            if (SessionResults.isDebtor(row)) {
+                System.out.println(row[0]);
+            }
+        }
         int[][] result = SessionResults.expelAndSort(matrix);
         System.out.println("Оставшиеся студенты по убыванию среднего балла:");
         print(result);
         if (result.length == 0) {
+            System.out.println("Студентов без задолженностей нет.");
+        }
+        System.out.println("Реализация через Stream API:");
+        System.out.println("Отчисленные (есть хотя бы одна двойка):");
+        Arrays.stream(matrix)
+                .filter(SessionResultsStream::isDebtor)
+                .forEach(row -> System.out.println(row[0]));
+        int[][] streamResult = SessionResultsStream.expelAndSort(matrix);
+        System.out.println("Оставшиеся студенты по убыванию среднего балла (Stream API):");
+        Arrays.stream(streamResult)
+                .forEach(
+                        row ->
+                                System.out.printf(
+                                        "%s; средний балл %.2f%n",
+                                        Arrays.toString(row), SessionResultsStream.average(row)));
+        if (streamResult.length == 0) {
             System.out.println("Студентов без задолженностей нет.");
         }
     }

@@ -1,8 +1,9 @@
 package ru.labs.lab2task15;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public final class SessionResults {
@@ -49,10 +50,13 @@ public final class SessionResults {
 
     public static int[][] expelAndSort(int[][] source) {
         validate(source);
-        return Arrays.stream(source)
-                .filter(row -> !isDebtor(row))
-                .map(int[]::clone)
-                .sorted(Comparator.<int[]>comparingDouble(SessionResults::average).reversed())
-                .toArray(int[][]::new);
+        List<int[]> result = new ArrayList<>();
+        for (int[] row : source) {
+            if (!isDebtor(row)) {
+                result.add(row.clone());
+            }
+        }
+        result.sort(Comparator.<int[]>comparingDouble(SessionResults::average).reversed());
+        return result.toArray(int[][]::new);
     }
 }
