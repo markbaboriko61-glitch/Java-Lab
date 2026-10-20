@@ -2,7 +2,7 @@
 
 ## Лабораторная работа 3
 
-Задания: 15, 17, 3. Java 17+, Maven, JUnit 5.
+Задание: 3. Java 17+, Maven, JUnit 5.
 
 Каждое задание — отдельный Maven-модуль. Код и тесты не содержат комментариев или Javadoc.
 
@@ -13,14 +13,6 @@ mvn clean verify
 ```
 
 ## Запуск
-
-```sh
-mvn -q -pl lab3-task15 compile exec:java
-```
-
-```sh
-mvn -q -pl lab3-task17 compile exec:java
-```
 
 ```sh
 mvn -q -pl lab3-task3 compile exec:java

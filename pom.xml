@@ -6,8 +6,6 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
   <modules>
-    <module>lab3-task15</module>
-    <module>lab3-task17</module>
     <module>lab3-task3</module>
   </modules>
   <dependencies>
