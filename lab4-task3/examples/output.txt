@@ -1,0 +1,16 @@
+16:06:13 DEBUG ApplianceFileReader - Создан прибор: Heater [H1, Обогреватель, 2000.0 Вт, 230 В, включён=true]
+16:06:13 DEBUG ApplianceFileReader - Создан прибор: Refrigerator [F1, Холодильник, 150.0 Вт, 220 В, включён=true]
+16:06:13 DEBUG ApplianceFileReader - Создан прибор: WashingMachine [W1, Стиральная машина, 1800.0 Вт, 230 В, включён=false]
+16:06:13 DEBUG ApplianceFileReader - Создан прибор: Heater [H2, Малый обогреватель, 800.0 Вт, 220 В, включён=false]
+16:06:13 WARN  ApplianceFileReader - Строка 8 пропущена: Неизвестный тип: UNKNOWN
+16:06:13 WARN  ApplianceFileReader - Строка 9 пропущена: Мощность и напряжение должны быть положительными
+16:06:13 ERROR ApplianceFileReader - Строка 10 пропущена: неверный формат числа
+16:06:13 WARN  ApplianceFileReader - Строка 11 пропущена: Некорректный параметр loadKilograms
+16:06:13 WARN  ApplianceFileReader - Строка 12 пропущена: повтор ID H1
+16:06:13 WARN  ApplianceFileReader - Строка 13 пропущена: Признак включения: true или false
+16:06:13 WARN  ApplianceFileReader - Строка 14 пропущена: Некорректный параметр targetTemperature
+16:06:13 WARN  ApplianceFileReader - Строка 15 пропущена: В записи должно быть 7 полей
+16:06:13 INFO  ApplianceFileReader - Загружено приборов: 4
+16:06:13 INFO  Main - Суммарная мощность включённых приборов: 2150.0 Вт
+16:06:13 INFO  Main - Приборы по возрастанию мощности: [Refrigerator [F1, Холодильник, 150.0 Вт, 220 В, включён=true], Heater [H2, Малый обогреватель, 800.0 Вт, 220 В, включён=false], WashingMachine [W1, Стиральная машина, 1800.0 Вт, 230 В, включён=false], Heater [H1, Обогреватель, 2000.0 Вт, 230 В, включён=true]]
+16:06:13 INFO  Main - Поиск: 100..2200 Вт, 220..240 В: [Heater [H1, Обогреватель, 2000.0 Вт, 230 В, включён=true], Refrigerator [F1, Холодильник, 150.0 Вт, 220 В, включён=true], WashingMachine [W1, Стиральная машина, 1800.0 Вт, 230 В, включён=false], Heater [H2, Малый обогреватель, 800.0 Вт, 220 В, включён=false]]
